@@ -1,3 +1,7 @@
+// Ép render động: KHÔNG prerender lúc build.
+// Tránh lỗi self-fetch (fetch /other) khi build trên Vercel lúc chưa có server chạy.
+export const dynamic = "force-dynamic";
+
 async function getServerData() {
   // gia lap test fetch
   await new Promise((resolve) => setTimeout(resolve, 300));
