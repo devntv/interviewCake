@@ -3,7 +3,6 @@ export const dynamic = "force-dynamic";
 
 
 const BUILD_TIME = new Date().toISOString();
-const COMMIT_SHA = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? "local";
 
 async function getServerData() {
   // gia lap test fetch
@@ -14,7 +13,6 @@ async function getServerData() {
     nodeVersion: process.version,
     secretComputed: `${(Math.random() * 1000).toFixed(2)}`,
     buildTime: BUILD_TIME,
-    commitSha: COMMIT_SHA,
   };
 }
 
@@ -106,12 +104,9 @@ export default async function RscDemoPage() {
           <li>
             <strong>Node version :</strong> {data.nodeVersion}
           </li>
+
           <li>
-            <strong>:</strong> {data.secretComputed}
-          </li>
-          <li>
-            <strong>Last build:</strong> {data.buildTime}{" "}
-            <span style={{ color: "#6b7280" }}>(commit {data.commitSha})</span>
+            <strong>Last build:</strong> {data.buildTime}
           </li>
         </ul>
       </section>
