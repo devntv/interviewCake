@@ -1,5 +1,4 @@
-// Ép render động: KHÔNG prerender lúc build.
-// Tránh lỗi self-fetch (fetch /other) khi build trên Vercel lúc chưa có server chạy.
+
 export const dynamic = "force-dynamic";
 
 async function getServerData() {
@@ -32,11 +31,17 @@ async function getSamples() {
     });
     const rsc = await rscRes.text();
 
+    const uiLines = rsc
+      .split("\n")
+      .filter((line) => line.includes('["$"'))
+      .join("\n");
+    const rscUi = uiLines || rsc;
+
     return {
       htmlContentType: htmlRes.headers.get("content-type") ?? "",
       rscContentType: rscRes.headers.get("content-type") ?? "",
       htmlSnippet: html.slice(0, 1500),
-      rscSnippet: rsc.slice(5500, 8610),
+      rscSnippet: rscUi.slice(0, 3000),
     };
   } catch {
     return null;
