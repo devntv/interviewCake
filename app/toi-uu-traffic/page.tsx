@@ -113,6 +113,8 @@ const sections: {
 const takeaway =
   "Chốt lại: với 1 triệu user đồng thời, nguyên tắc số 1 là ĐỪNG để traffic chạm server — biến trang thành tĩnh (SSG/ISR), phục vụ từ CDN edge (Phần này em có trả lời trong các trường hợp em dùng là SSG và ISR + WebHook nếu data thay đổi bên thứ 3, user đầu tiên vô trang tốn request, từ user 2 đến 99999 thì đã cache sẵn ở CDN). phần 6 cũng quan trọng - em cũng đã trả lời và vừa tìm ra keyword cho nó có tên là client-side search.Phần lớn các mục 3 4 5 Nextjs đã xử lý sẵn và hỗ trợ, ai dùng Nextjs cũng biết nó là gì, mục 2 là điều em nghỉ ai làm FE cũng biết làm. nén và tối ưu ảnh để giảm từng KB, và tận dụng cache trình duyệt để không tải lại. Server chỉ nên xử lý phần thực sự động.";
 
+
+const takeaway2 = "Các mục em đã trình bay như ÁWS load balancer, sticky-session, wating-room, queue, không thuộc FE, cái này FE cần phải biết. Traffic các trang lớn như shopee xử lý 1 triệu user đa số nằm ở BE server"
 export default function ToiUuTrafficPage() {
   return (
     <main
@@ -143,6 +145,29 @@ export default function ToiUuTrafficPage() {
         <strong>Kết luận</strong>
         <div style={{ margin: "6px 0 0" }}>
           {takeaway
+            .split(".")
+            .map((s) => s.trim())
+            .filter(Boolean)
+            .map((cau, i) => (
+              <p key={i} style={{ margin: "0 0 6px" }}>
+                {cau}.
+              </p>
+            ))}
+        </div>
+      </section>
+
+      <section
+        style={{
+          marginTop: 32,
+          padding: "14px 18px",
+          background: "#ecfdf5",
+          border: "1px solid #a7f3d0",
+          borderRadius: 8,
+        }}
+      >
+        <strong>Kết luận</strong>
+        <div style={{ margin: "6px 0 0" }}>
+          {takeaway2
             .split(".")
             .map((s) => s.trim())
             .filter(Boolean)
