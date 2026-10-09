@@ -6,6 +6,7 @@ const links = [
   { href: "/rsc-demo", label: "RSC Demo anh Nghi" },
   { href: "/other", label: "Demo anh Diển" },
   { href: "/toi-uu-traffic", label: "Tối ưu traffic" },
+  { href: "/cam-on", label: "Cảm ơn" },
 ];
 
 export default function Nav() {
