@@ -1,0 +1,14 @@
+[
+  { "id": 1, "name": "Next.js", "category": "Framework", "desc": "React framework hỗ trợ SSR, SSG, ISR, RSC." },
+  { "id": 2, "name": "React", "category": "Library", "desc": "Thư viện UI dạng component." },
+  { "id": 3, "name": "Vercel", "category": "Hosting", "desc": "Nền tảng deploy với CDN edge." },
+  { "id": 4, "name": "CloudFront", "category": "CDN", "desc": "CDN của AWS, cache ở edge." },
+  { "id": 5, "name": "Brotli", "category": "Compression", "desc": "Thuật toán nén web hiệu quả hơn Gzip." },
+  { "id": 6, "name": "WebP", "category": "Image", "desc": "Định dạng ảnh nén tốt cho web." },
+  { "id": 7, "name": "AVIF", "category": "Image", "desc": "Định dạng ảnh thế hệ mới, nén rất cao." },
+  { "id": 8, "name": "ISR", "category": "Rendering", "desc": "Incremental Static Regeneration." },
+  { "id": 9, "name": "SSG", "category": "Rendering", "desc": "Static Site Generation lúc build." },
+  { "id": 10, "name": "Suspense", "category": "React", "desc": "Streaming UI theo từng phần." },
+  { "id": 11, "name": "Edge Middleware", "category": "Next.js", "desc": "Chạy logic tại edge, gần user." },
+  { "id": 12, "name": "Service Worker", "category": "PWA", "desc": "Cache tài nguyên offline phía client." }
+]
