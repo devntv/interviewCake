@@ -111,10 +111,10 @@ const sections: {
   ];
 
 const takeaway =
-  "Chốt lại: với 1 triệu user đồng thời, nguyên tắc số 1 là ĐỪNG để traffic chạm server — biến trang thành tĩnh (SSG/ISR), phục vụ từ CDN edge (Phần này em có trả lời trong các trường hợp em dùng là SSG và ISR + WebHook nếu data thay đổi bên thứ 3, user đầu tiên vô trang tốn request, từ user 2 đến 99999 thì đã cache sẵn ở CDN). phần 6 cũng quan trọng - em cũng đã trả lời và vừa tìm ra keyword cho nó có tên là client-side search.Phần lớn các mục 3 4 5 Nextjs đã xử lý sẵn và hỗ trợ, ai dùng Nextjs cũng biết nó là gì, mục 2 là điều em nghỉ ai làm FE cũng biết làm. nén và tối ưu ảnh để giảm từng KB, và tận dụng cache trình duyệt để không tải lại. Server chỉ nên xử lý phần thực sự động.";
+  "Chốt lại: với 1 triệu user đồng thời, nguyên tắc số 1 là ĐỪNG để traffic chạm server — biến trang thành tĩnh (SSG/ISR), phục vụ từ CDN edge (Phần này em có trả lời trong các trường hợp em dùng là SSG và ISR + WebHook nếu data thay đổi bên thứ 3, user đầu tiên vô trang tốn request, từ user 2 đến 99999 thì đã cache sẵn ở CDN). phần 6 cũng quan trọng - em cũng đã trả lời và vừa tìm ra keyword cho nó có tên là client-side search, áp dụng cho các page có danh mục chi tiết, categories, page lớn như shopee nên dùng ISR + tối ưu ở server.Phần lớn các mục 3 4 5 Nextjs đã xử lý sẵn và hỗ trợ, ai dùng Nextjs cũng biết nó là gì, mục 2 là điều em nghỉ ai làm FE cũng biết làm. nén và tối ưu ảnh để giảm từng KB, và tận dụng cache trình duyệt để không tải lại. Server chỉ nên xử lý phần thực sự động.";
 
 
-const takeaway2 = "Các mục em đã trình bay như ÁWS load balancer, sticky-session, wating-room, queue, không thuộc FE, cái này FE cần phải biết. Traffic các trang lớn như shopee xử lý 1 triệu user đa số nằm ở BE server"
+const takeaway2 = "Các mục em đã trình bay như ÁWS load balancer, sticky-session, wating-room, queue, không thuộc FE, cái này FE cần phải biết. Traffic các trang lớn như shopee xử lý 1 triệu user đa số chiến lược nằm ở BE server"
 export default function ToiUuTrafficPage() {
   return (
     <main
@@ -197,7 +197,7 @@ export default function ToiUuTrafficPage() {
 
       <section style={{ marginTop: 28 }}>
         <h2 style={{ borderBottom: "2px solid #e5e7eb", paddingBottom: 6 }}>
-          6. Build JSON tĩnh & search full phía client (quan trọng)
+          6. Build JSON tĩnh & search full phía client (quan trọng, dùng cho dữ liệu Json không quá lớn)
         </h2>
         <p style={{ color: "#555", fontStyle: "italic" }}>
           Thay vì mỗi lần gõ tìm kiếm lại gọi API về server, ta build sẵn toàn bộ
