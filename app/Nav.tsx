@@ -3,7 +3,7 @@ import Link from "next/link";
 // Menu điều hướng dùng chung cho mọi trang.
 // Thêm page mới chỉ cần thêm 1 phần tử vào mảng links bên dưới.
 const links = [
-  { href: "/rsc-demo", label: "RSC Demo anh Nghi" },
+  { href: "/rsc-demo", label: "Demo anh Nghi" },
   { href: "/other", label: "Demo anh Diển" },
   { href: "/toi-uu-traffic", label: "Tối ưu traffic" },
   { href: "/cam-on", label: "Lời cảm ơn" },

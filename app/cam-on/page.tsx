@@ -8,10 +8,9 @@ export default function CamOnPage() {
         textAlign: "center",
       }}
     >
-      <h1>Lời cảm ơn</h1>
       <p style={{ fontSize: 18 }}>
         Cảm ơn anh <strong>Thuận</strong>, anh <strong>Diển</strong> và anh{" "}
-        <strong>Nghi</strong> đã tham gia phỏng vấn, cảm ơn <strong>Khoa</strong> đã luôn support.
+        <strong>Nghi</strong> đã tham gia phỏng vấn, cảm ơn <strong>Khoa</strong> đã support.
       </p>
     </main>
   );

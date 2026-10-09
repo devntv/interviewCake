@@ -78,6 +78,7 @@ export default async function RscDemoPage() {
           href="https://nextjs.org/docs/13/app/building-your-application/rendering/server-components#how-are-server-components-rendered"
           target="_blank"
           rel="noopener noreferrer"
+          style={{ color: "#2563eb", textDecoration: "underline" }}
         >
           How are Server Components rendered? (Next.js docs)
         </a>
@@ -96,7 +97,7 @@ export default async function RscDemoPage() {
           background: "#f6f6f6",
         }}
       >
-        <h2>Dữ liệu lấy trên server</h2>
+        <h2>data server</h2>
         <ul>
           <li>
             <strong>date</strong> {data.renderedAt}
@@ -121,22 +122,29 @@ export default async function RscDemoPage() {
           background: "#fffbea",
         }}
       >
-        <h2>Ghi chú nhanh về JWT</h2>
+        <h2>về JWT</h2>
         <ul>
           <li>
-            JWT = <code>header.payload.signature</code>. Phần thứ 3 là{" "}
-            <strong>signature</strong> (chữ ký), KHÔNG phải secret key — secret
+            JWT = <code>header.payload.signature</code>.  — secret
             key chỉ nằm ở server.
           </li>
           <li>
-            Payload rỗng <code>{"{}"}</code> vẫn hợp lệ: token thành{" "}
+            payload rỗng <code>{"{}"}</code> vẫn hợp lệ: token thành{" "}
             <code>header.e30.signature</code> (<code>e30</code> là{" "}
-            <code>{"{}"}</code> đã mã hóa), KHÔNG phải{" "}
+            <code>{"{}"}</code> đã mã hóa),
             <code>header..signature</code>.
           </li>
           <li>
-            Chuẩn JWT không tự sinh claim nào; chỉ thư viện (vd jsonwebtoken) mới
-            tự thêm <code>iat</code>.
+            Theo như research chuẩn JWT không tự sinh payload khi nó rỗng hoặc không có claim nào; và chỉ thư viện (vd jsonwebtoken) mới
+            tự thêm <code>iat</code> và chỉ iat, phần này em có được anh <strong>Nghi</strong> nói nó tự sinh gồm vài thứ trong buổi phỏng vấn mà theo em research thì payload rỗng sẽ không có ý nghĩa thực tế trong việc xác thực người dùng hoặc có thể em missmatch gì đó. và em rất cảm ơn anh <strong>Nghi</strong> đã giúp em tìm hiểu sâu hơn về phần này của JWT.
+
+          </li>
+          <li>
+            Phần tại sao nó khó thu hồi mặc dù cũng gửi về client như session, vì nó stateless nên không được lưu ở phía server  = với không có
+            nơi để đánh dấu token này đã hủy. Token tự chứng
+            minh tính hợp lệ bằng chữ ký, server chỉ verify chứ
+            không tra cứu danh sách. Muốn thu hồi được thì phải
+            thêm state (blacklist, token version...). Cảm ơn anh <strong>Thuận</strong> đã giúp em tìm hiểu sâu hơn phần này ở phía dưới server
           </li>
         </ul>
       </section>
