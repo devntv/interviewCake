@@ -111,6 +111,36 @@ export default async function RscDemoPage() {
         </ul>
       </section>
 
+      {/* //jwt herer */}
+      <section
+        style={{
+          marginTop: 24,
+          border: "1px solid #ddd",
+          borderRadius: 8,
+          padding: 16,
+          background: "#fffbea",
+        }}
+      >
+        <h2>Ghi chú nhanh về JWT</h2>
+        <ul>
+          <li>
+            JWT = <code>header.payload.signature</code>. Phần thứ 3 là{" "}
+            <strong>signature</strong> (chữ ký), KHÔNG phải secret key — secret
+            key chỉ nằm ở server.
+          </li>
+          <li>
+            Payload rỗng <code>{"{}"}</code> vẫn hợp lệ: token thành{" "}
+            <code>header.e30.signature</code> (<code>e30</code> là{" "}
+            <code>{"{}"}</code> đã mã hóa), KHÔNG phải{" "}
+            <code>header..signature</code>.
+          </li>
+          <li>
+            Chuẩn JWT không tự sinh claim nào; chỉ thư viện (vd jsonwebtoken) mới
+            tự thêm <code>iat</code>.
+          </li>
+        </ul>
+      </section>
+
       <section style={{ marginTop: 24 }}>
         <h2>1. HTML tu server </h2>
         <p style={{ color: "#555", fontSize: 14 }}>
