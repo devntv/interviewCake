@@ -16,14 +16,14 @@ export default async function OtherPage() {
         setTimeout giao việc đếm giờ cho Web APIs nên khi bấm Sort vì e đang giả lập chậm bằng setTimeout, main thread
         KHÔNG bị chiếm trong lúc chờ. Bấm Shuffle giữa chừng vẫn chạy. Main
         thread chỉ bị khóa khi callback run sau 5s và vòng lặp nặng bên trong
-        bắt đầu chạy → lúc đó UI mới đơ.
+        bắt đầu chạy - lúc đó UI mới đơ.
       </div>
       <div style={noteStyle}>{'Ban đầu nhìn code anh Diển viết trên bảng nên em chạy code thử trong đầu với setTimeout để giả lập cho cái hàm sort chậm,em có trả lời là nếu lần đầu bấm sort 5s sau đó chờ lâu 3s thì bấm shuffle thì UI sẽ hiện ngay dữ liệu của shuffle sau đó nháy về sort -> giống kết quả mà e trả lời  của demo trên '}</div>
 
       <h2 style={{ ...demoHeading, marginTop: 36 }}>Demo 2</h2>
       <BlockingDemo />
       <div style={explainStyle}>
-        Không dùng setTimeout, vòng lặp sort chạy thẳng trên main thread → UI đơ
+        Không dùng setTimeout, vòng lặp sort chạy thẳng trên main thread - UI đơ
         NGAY từ lúc bấm Sort. Loading cũng không kịp hiện, và click Shuffle giữa
         chừng bị xếp hàng, chỉ chạy sau khi sort xong.
       </div>

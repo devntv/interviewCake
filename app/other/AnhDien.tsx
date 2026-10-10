@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SortCodeBlock from "./SortCodeBlock";
 
 function createInitial(): number[] {
   return Array.from({ length: 1000 }, (_, i) => i);
@@ -16,7 +17,7 @@ export default function AnhDien() {
       // gia lap ham nay nặng, tốn timer chạy.
       const start = Date.now();
       while (Date.now() - start < 4000) {
-        // vòng lặp rỗng để  giữ main thread bận gây ui đơ
+
       }
       setItems((prev) => [...prev].sort((a, b) => a - b));
       setLoading(null);
@@ -82,6 +83,24 @@ export default function AnhDien() {
           </span>
         ))}
       </div>
+
+      <SortCodeBlock
+        code={`function handleSort() {
+  setLoading("sort");
+  setTimeout(() => {
+  let sum = 0;
+    // gia lap ham nay nặng, tốn timer chạy.
+    const start = Date.now();
+    while (Date.now() - start < 4000) {
+     for (let i = 0; i < 100000; i++) {
+        sum += Math.sqrt(i);
+      }
+    }
+    setItems((prev) => [...prev].sort((a, b) => a - b));
+    setLoading(null);
+  }, 5000);
+}`}
+      />
     </div>
   );
 }

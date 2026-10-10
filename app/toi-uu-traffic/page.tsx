@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import ClientSearch from "./ClientSearch";
 import Comments from "../components/Comments";
+import ClientSearch from "./ClientSearch";
 
 export const metadata: Metadata = {
   title: "Tối ưu traffic cho 1 triệu user — Next.js",
@@ -36,7 +36,7 @@ const sections: {
       items: [
         {
           name: "React Server Components",
-          desc: "Đẩy logic & thư viện sang server, không gửi JS của Server Component xuống client → bundle nhẹ hơn hẳn.",
+          desc: "Đẩy logic & thư viện sang server, không gửi JS của Server Component xuống client -> bundle nhẹ hơn hẳn.",
         },
         {
           name: "Code splitting / dynamic import",
@@ -203,7 +203,7 @@ export default function ToiUuTrafficPage() {
           </li>
           <li style={{ marginBottom: 8 }}>
             <strong>File JSON được CDN cache:</strong> đặt trong /public hoặc
-            build-time, phục vụ như asset tĩnh với cache dài hạn → origin gần như
+            build-time, phục vụ như asset tĩnh với cache dài hạn - origin gần như
             không bị tải.
           </li>
           <li style={{ marginBottom: 8 }}>

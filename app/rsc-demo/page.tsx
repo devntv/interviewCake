@@ -103,7 +103,7 @@ export default async function RscDemoPage() {
       </p>
 
       <p>
-        {'f12 va xem view page source -> trả html từ server + rsc payload (tab network) -> support seo tốt cho bot google '}
+        Em wrap up lại các câu trả lời trong buổi phỏng vấn để làm rõ hơn những câu còn thiếu sót.
       </p>
 
       <section style={cardStyle}>
@@ -145,12 +145,11 @@ export default async function RscDemoPage() {
           <li>
             payload rỗng <code>{"{}"}</code> vẫn hợp lệ: token thành{" "}
             <code>header.e30.signature</code> (<code>e30</code> là{" "}
-            <code>{"{}"}</code> đã mã hóa),
-            <code>header..signature</code>.
+            <code>{"{}"}</code> đã mã hóa).
           </li>
           <li>
             Theo như research chuẩn JWT không tự sinh payload khi nó rỗng hoặc không có claim nào; và chỉ thư viện (vd jsonwebtoken) mới
-            tự thêm <code>iat</code> và chỉ iat, phần này em có được anh <strong>Nghi</strong> nói nó tự sinh gồm vài thứ trong buổi phỏng vấn mà theo em research thì payload rỗng sẽ không có ý nghĩa thực tế trong việc xác thực người dùng hoặc có thể em missmatch gì đó. và em rất cảm ơn anh <strong>Nghi</strong> đã giúp em tìm hiểu sâu hơn về phần này của JWT.
+            tự thêm <code>iat</code> và chỉ iat, phần này em có được anh <strong>Nghi</strong> nói nó tự sinh gồm vài thứ trong buổi phỏng vấn mà theo em research thì payload rỗng sẽ không có ý nghĩa thực tế trong việc xác thực người dùng hoặc có thể em missmatch nghe không kỹ hay gì đó. và em rất cảm ơn anh <strong>Nghi</strong> đã giúp em tìm hiểu sâu hơn về phần này của JWT.
 
           </li>
           <li>
@@ -183,7 +182,7 @@ export default async function RscDemoPage() {
         </pre>
       </section>
       <section style={{ ...cardStyle, background: "#f5f3ff", borderColor: "#ddd6fe" }}>
-        <h2 style={{ ...h2Style, borderBottomColor: "#ddd6fe" }}>em trả lời cho anh Nghi</h2>
+        <h2 style={{ ...h2Style, borderBottomColor: "#ddd6fe" }}>nội dung đã trả lời cho anh Nghi</h2>
         <p style={{ margin: 0, color: "#4c1d95" }}>React server component được render thẳng phía server và trả về từ đó giúp seo tốt, cùng lúc đó trả cả RSC Payload cho react để nó dựng lại cây component gồm cây current và cây WIP, hydrate các Client Component (phần này có gửi js) nếu có và không trả JS về client giúp nhẹ bundle đúng theo link docs em gửi phía trên + các nguồn khác nhau, không trả lời được RSC có dạng là gì, sau khi tìm hiểu thì nó có dạng binary stream</p>
       </section>
       <section style={cardStyle}>

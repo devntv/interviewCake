@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SortCodeBlock from "./SortCodeBlock";
 
 function createInitial(): number[] {
   return Array.from({ length: 1000 }, (_, i) => i);
@@ -114,6 +115,27 @@ export default function BlockingDemo() {
           </span>
         ))}
       </div>
+
+      <SortCodeBlock
+        title="handleSort()"
+        code={`// dung bubble sort để lâu thời gian chờ
+
+function sortForDuration(data: number[], timer: number): number[] {
+  const start = Date.now();
+  let result = bubbleSort(data);
+  while (Date.now() - start < timer) {
+    result = bubbleSort(shuffleArr(data));
+  }
+  return bubbleSort(data);
+}
+
+function handleSort() {
+  setLoading("sort");
+  const sorted = sortForDuration(items, 5000);
+  setItems(sorted);
+  setLoading(null);
+}`}
+      />
     </div>
   );
 }
