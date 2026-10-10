@@ -154,19 +154,8 @@ export default function ToiUuTrafficPage() {
               </p>
             ))}
         </div>
-      </section>
-
-      <section
-        style={{
-          marginTop: 32,
-          padding: "14px 18px",
-          background: "#ecfdf5",
-          border: "1px solid #a7f3d0",
-          borderRadius: 8,
-        }}
-      >
-        <strong>Kết luận</strong>
-        <div style={{ margin: "6px 0 0" }}>
+        <div style={{ marginTop: 24 }}>
+          <hr style={{ border: "none", borderTop: "1px solid #a7f3d0", margin: "0 0 16px" }} />
           {takeaway2
             .split(".")
             .map((s) => s.trim())
