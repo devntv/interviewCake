@@ -114,7 +114,7 @@ const takeaway =
   "Chốt lại: với 1 triệu user đồng thời, nguyên tắc số 1 là ĐỪNG để traffic chạm server — biến trang thành tĩnh (SSG/ISR), phục vụ từ CDN edge (Phần này em có trả lời trong các trường hợp em dùng là SSG và ISR + WebHook nếu data thay đổi bên thứ 3, user đầu tiên vô trang tốn request, từ user 2 đến 99999 thì đã cache sẵn ở CDN). phần 6 quan trọng - em đã trả lời và vừa tìm ra keyword cho nó có tên là client-side search, áp dụng cho các page có danh mục chi tiết, categories, chúng ta có thể trả về Json lên tới hàng nghìn record vẫn mượt, nếu lên tới hàng chục nghìn thì chỉ cần index search, page lớn như shopee nên dùng ISR + tối ưu ở server.Phần lớn các mục 3 4 5 Nextjs đã xử lý sẵn và hỗ trợ, ai dùng Nextjs cũng biết nó là gì, mục 2 là điều em nghĩ ai làm FE cũng biết làm. nén và tối ưu ảnh để giảm từng KB, và tận dụng cache trình duyệt để không tải lại. Server chỉ nên xử lý phần thực sự động.";
 
 
-const takeaway2 = "Các mục em đã trình bay như ÁWS load balancer, sticky-session, wating-room, queue, không thuộc FE, cái này FE nào cũng cần phải biết. Traffic các trang lớn như shopee xử lý 1 triệu user đa số chiến lược nằm ở BE server"
+const takeaway2 = "Các mục em đã trình bay như ÁWS load balancer - auto scaling, sticky-session, wating-room, queue, không thuộc FE, cái này FE nào cũng cần phải biết. Traffic các trang lớn như shopee xử lý 1 triệu user đa số chiến lược nằm ở BE server"
 export default function ToiUuTrafficPage() {
   return (
     <main
