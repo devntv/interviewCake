@@ -35,6 +35,12 @@ a {
   text-decoration: none;
 }
 
+/* Hover cho nav link kiểu shadcn */
+.nav-link:hover {
+  background: #f1f5f9;
+  color: #0f172a !important;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

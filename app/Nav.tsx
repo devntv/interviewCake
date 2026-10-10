@@ -1,7 +1,9 @@
-import Link from "next/link";
+"use client";
 
-// Menu điều hướng dùng chung cho mọi trang.
-// Thêm page mới chỉ cần thêm 1 phần tử vào mảng links bên dưới.
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+// Menu điều hướng dùng chung. Thêm page mới chỉ cần thêm 1 phần tử vào mảng links.
 const links = [
   { href: "/rsc-demo", label: "Demo anh Nghi" },
   { href: "/other", label: "Demo anh Diển" },
@@ -10,26 +12,67 @@ const links = [
 ];
 
 export default function Nav() {
+  const pathname = usePathname();
+
   return (
-    <nav
-      style={{
-        display: "flex",
-        gap: 16,
-        padding: "12px 32px",
-        borderBottom: "1px solid #e5e7eb",
-        background: "#fafafa",
-        fontFamily: "sans-serif",
-      }}
-    >
-      {links.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          style={{ textDecoration: "none", color: "#2563eb", fontWeight: 500 }}
-        >
-          {link.label}
-        </Link>
-      ))}
-    </nav>
+    <header style={styles.header}>
+      <div style={styles.inner}>
+        <nav style={styles.nav}>
+          {links.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="nav-link"
+                style={{
+                  ...styles.link,
+                  ...(active ? styles.linkActive : {}),
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+    </header>
   );
 }
+
+const styles: Record<string, React.CSSProperties> = {
+  header: {
+    position: "sticky",
+    top: 0,
+    zIndex: 50,
+    borderBottom: "1px solid #e5e7eb",
+    background: "rgba(255,255,255,0.8)",
+    backdropFilter: "saturate(180%) blur(8px)",
+    WebkitBackdropFilter: "saturate(180%) blur(8px)",
+    fontFamily: "sans-serif",
+  },
+  inner: {
+    maxWidth: 1100,
+    margin: "0 auto",
+    height: 56,
+    padding: "0 20px",
+    display: "flex",
+    alignItems: "center",
+    gap: 24,
+  },
+  nav: { display: "flex", alignItems: "center", gap: 4 },
+  link: {
+    textDecoration: "none",
+    color: "#64748b",
+    fontSize: 14,
+    fontWeight: 500,
+    padding: "6px 12px",
+    borderRadius: 8,
+    transition: "all 0.15s ease",
+  },
+  linkActive: {
+    color: "#0f172a",
+    background: "#f1f5f9",
+    fontWeight: 600,
+  },
+};

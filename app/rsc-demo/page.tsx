@@ -1,4 +1,6 @@
 
+import Comments from "../components/Comments";
+
 export const dynamic = "force-dynamic";
 
 
@@ -68,12 +70,28 @@ export default async function RscDemoPage() {
     wordBreak: "break-all",
   };
 
-  return (
-    <main style={{ fontFamily: "sans-serif", padding: 32, lineHeight: 1.6 }}>
-      <h1>test React Server Component</h1>
+  const h2Style: React.CSSProperties = {
+    fontSize: 18,
+    marginTop: 0,
+    marginBottom: 12,
+    paddingBottom: 6,
+    borderBottom: "2px solid #e5e7eb",
+  };
+  const cardStyle: React.CSSProperties = {
+    marginTop: 20,
+    border: "1px solid #e5e7eb",
+    borderRadius: 12,
+    padding: 20,
+    background: "#fff",
+    boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+  };
 
-      <p style={{ color: 'burlywood' }}>
-        react server component
+  return (
+    <main style={{ fontFamily: "sans-serif", padding: 32, lineHeight: 1.6, maxWidth: 820, margin: "0 auto" }}>
+
+      <h1 style={{ fontSize: 28, marginBottom: 8 }}>Demo React Server Component</h1>
+
+      <p style={{ marginTop: 0 }}>
         <a
           href="https://nextjs.org/docs/13/app/building-your-application/rendering/server-components#how-are-server-components-rendered"
           target="_blank"
@@ -88,16 +106,8 @@ export default async function RscDemoPage() {
         {'f12 va xem view page source -> trả html từ server + rsc payload (tab network) -> support seo tốt cho bot google '}
       </p>
 
-      <section
-        style={{
-          border: "1px solid #ccc",
-          borderRadius: 8,
-          padding: 16,
-          marginTop: 16,
-          background: "#f6f6f6",
-        }}
-      >
-        <h2>data server</h2>
+      <section style={cardStyle}>
+        <h2 style={h2Style}>data server</h2>
         <ul>
           <li>
             <strong>date</strong> {data.renderedAt}
@@ -111,31 +121,23 @@ export default async function RscDemoPage() {
           </li>
         </ul>
         <p style={{ marginTop: 12 }}>
-          Mã nguồn tại (
+          source code at:
           <a
             href="https://github.com/devntv"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#2563eb", textDecoration: "underline" }}
+            style={{ color: "#2563eb", textDecoration: "underline", marginLeft: '2px' }}
           >
             https://github.com/devntv
           </a>
-          )
+
         </p>
       </section>
 
       {/* //jwt herer */}
-      <section
-        style={{
-          marginTop: 24,
-          border: "1px solid #ddd",
-          borderRadius: 8,
-          padding: 16,
-          background: "#fffbea",
-        }}
-      >
-        <h2>về JWT</h2>
-        <ul>
+      <section style={{ ...cardStyle, background: "#fffbea", borderColor: "#fde68a" }}>
+        <h2 style={{ ...h2Style, borderBottomColor: "#fde68a" }}>về JWT</h2>
+        <ul style={{ margin: 0, paddingLeft: 20, display: "flex", flexDirection: "column", gap: 10 }}>
           <li>
             JWT = <code>header.payload.signature</code>.  — secret
             key chỉ nằm ở server.
@@ -161,9 +163,9 @@ export default async function RscDemoPage() {
         </ul>
       </section>
 
-      <section style={{ marginTop: 24 }}>
-        <h2>1. HTML tu server (trang đang chạy)</h2>
-        <p style={{ color: "#555", fontSize: 14 }}>
+      <section style={cardStyle}>
+        <h2 style={h2Style}>1. HTML tu server (trang đang chạy)</h2>
+        <p style={{ color: "#555", fontSize: 14, marginTop: 0 }}>
           Content-Type: <code>{samples?.htmlContentType}</code>
         </p>
         <pre style={boxStyle}>
@@ -171,23 +173,32 @@ export default async function RscDemoPage() {
         </pre>
       </section>
 
-      <section style={{ marginTop: 24 }}>
-        <h2>2. RSC payload (trang đang chạy)</h2>
-        <p style={{ color: "#555", fontSize: 14 }}>
+      <section style={cardStyle}>
+        <h2 style={h2Style}>2. RSC payload (trang đang chạy)</h2>
+        <p style={{ color: "#555", fontSize: 14, marginTop: 0 }}>
           Content-Type: <code>{samples?.rscContentType}</code>
         </p>
         <pre style={boxStyle}>
           {samples ? samples.rscSnippet : "Không fetch được (server chưa sẵn sàng)."}
         </pre>
       </section>
-      <div style={{ color: 'blueviolet', marginTop: 20 }}>em trả lời cho anh Nghi: React server component được render thẳng phía server và trả về từ đó giúp seo tốt, cùng lúc đó trả cả RSC Payload cho react để nó dựng lại cây component gồm cây current và cây WIP, hydrate các Client Component (phần này có gửi js) nếu có và không trả JS về client giúp nhẹ bundle đúng theo link docs em gửi phía trên + các nguồn khác nhau, không trả lời được RSC có dạng là gì, sau khi tìm hiểu thì nó có dạng binary stream</div>
-      <p style={{ marginTop: 20 }}>What is the React Server Component Payload (RSC)?
+      <section style={{ ...cardStyle, background: "#f5f3ff", borderColor: "#ddd6fe" }}>
+        <h2 style={{ ...h2Style, borderBottomColor: "#ddd6fe" }}>em trả lời cho anh Nghi</h2>
+        <p style={{ margin: 0, color: "#4c1d95" }}>React server component được render thẳng phía server và trả về từ đó giúp seo tốt, cùng lúc đó trả cả RSC Payload cho react để nó dựng lại cây component gồm cây current và cây WIP, hydrate các Client Component (phần này có gửi js) nếu có và không trả JS về client giúp nhẹ bundle đúng theo link docs em gửi phía trên + các nguồn khác nhau, không trả lời được RSC có dạng là gì, sau khi tìm hiểu thì nó có dạng binary stream</p>
+      </section>
+      <section style={cardStyle}>
+        <h2 style={h2Style}>What is the React Server Component Payload (RSC)?</h2>
+        <p style={{ margin: 0, color: "#374151" }}>
+          The RSC Payload is a compact binary representation of the rendered React Server Components tree. It&apos;s used by React on the client to update the browser&apos;s DOM. The RSC Payload contains:
+        </p>
+        <ul style={{ marginTop: 10, marginBottom: 0, paddingLeft: 20, color: "#374151" }}>
+          <li>The rendered result of Server Components</li>
+          <li>Placeholders for where Client Components should be rendered and references to their JavaScript files</li>
+          <li>Any props passed from a Server Component to a Client Component</li>
+        </ul>
+      </section>
 
-        The RSC Payload is a compact binary representation of the rendered React Server Components tree. It's used by React on the client to update the browser's DOM. The RSC Payload contains:
-
-        The rendered result of Server Components
-        Placeholders for where Client Components should be rendered and references to their JavaScript files
-        Any props passed from a Server Component to a Client Component</p>
+      <Comments pageId="rsc-demo" />
     </main>
   );
 }

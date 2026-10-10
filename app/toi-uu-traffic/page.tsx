@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ClientSearch from "./ClientSearch";
+import Comments from "../components/Comments";
 
 export const metadata: Metadata = {
   title: "Tối ưu traffic cho 1 triệu user — Next.js",
@@ -225,7 +226,7 @@ export default function ToiUuTrafficPage() {
         <ClientSearch />
       </section>
 
-
+      <Comments pageId="toi-uu-traffic" />
     </main>
   );
 }

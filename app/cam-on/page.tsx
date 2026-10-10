@@ -6,6 +6,8 @@ export default function CamOnPage() {
         padding: 32,
         lineHeight: 1.6,
         textAlign: "center",
+        maxWidth: 820,
+        margin: "0 auto",
       }}
     >
       <p style={{ fontSize: 18 }}>
