@@ -110,6 +110,18 @@ export default async function RscDemoPage() {
             <strong>Last build:</strong> {data.buildTime}
           </li>
         </ul>
+        <p style={{ marginTop: 12 }}>
+          Mã nguồn tại (
+          <a
+            href="https://github.com/devntv"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#2563eb", textDecoration: "underline" }}
+          >
+            https://github.com/devntv
+          </a>
+          )
+        </p>
       </section>
 
       {/* //jwt herer */}
@@ -150,7 +162,7 @@ export default async function RscDemoPage() {
       </section>
 
       <section style={{ marginTop: 24 }}>
-        <h2>1. HTML tu server </h2>
+        <h2>1. HTML tu server (trang đang chạy)</h2>
         <p style={{ color: "#555", fontSize: 14 }}>
           Content-Type: <code>{samples?.htmlContentType}</code>
         </p>
@@ -160,7 +172,7 @@ export default async function RscDemoPage() {
       </section>
 
       <section style={{ marginTop: 24 }}>
-        <h2>2. RSC payload</h2>
+        <h2>2. RSC payload (trang đang chạy)</h2>
         <p style={{ color: "#555", fontSize: 14 }}>
           Content-Type: <code>{samples?.rscContentType}</code>
         </p>
