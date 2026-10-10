@@ -28,7 +28,7 @@ export default async function OtherPage() {
         chừng bị xếp hàng, chỉ chạy sau khi sort xong.
       </div>
 
-      <div style={noteStyle}>{'sau khi về nhà thì em có code lại thử các trường hợp khác nhau thì em nghĩ thứ anh Diển đang hỏi mong muốn là chỗ này, nếu ko dùng setTimeout để mô tả cho nó chậm thì e phải tìm tìm cách làm cho nó thật chậm = bubble sort, nên từ đây mới hiểu ý'}</div>
+      <div style={noteStyle}>{'em có code lại thử các trường hợp khác nhau thì em nghĩ thứ anh Diển đang hỏi mong muốn là chỗ này, nếu ko dùng setTimeout để mô tả cho nó chậm thì e phải tìm tìm cách làm cho nó thật chậm = bubble sort, nên từ đây mới hiểu ý'}</div>
 
       <Comments pageId="other" />
     </main>
